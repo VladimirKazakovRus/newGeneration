@@ -11,9 +11,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    private static final String URL = "jdbc:mysql://localhost:3306/new_schema";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
     private static Util instance = null;
     private static Connection conn = null;
     public static Util getInstance() {
@@ -38,15 +35,7 @@ public class Util {
 
 
     public Connection getConnection() {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Соедине с БД установлено");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Error: " + e.getMessage());
-        }
-        return connection;
+        return conn;
     }
 
 
